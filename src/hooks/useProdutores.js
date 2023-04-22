@@ -8,6 +8,9 @@ export default function useProdutores() {
 
   useEffect(() => {
     const retorno = carregaProdutores(); //armazena serviço em uma variavel
+    retorno.lista.sort(
+      (produtor1, produtor2) => produtor1.distancia - produtor2.distancia,
+    );
     setTitulo(retorno.titulo); //usa o metodo/funcao setTitulo para retornar dado da variavel
     setlista(retorno.lista);
   }, []);
