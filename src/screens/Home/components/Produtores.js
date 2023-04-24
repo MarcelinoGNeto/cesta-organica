@@ -3,8 +3,10 @@ import Texto from '../../../components/Texto';
 import {FlatList, StyleSheet} from 'react-native';
 import Produtor from './Produtor';
 import useProdutores from './../../../hooks/useProdutores';
+import {useNavigation} from '@react-navigation/native';
 
 export default function Produtores({topo: Topo}) {
+  const navigation = useNavigation();
   const [titulo, lista] = useProdutores();
 
   const topoLista = () => {
@@ -16,7 +18,14 @@ export default function Produtores({topo: Topo}) {
     );
   };
 
-  const renderItem = ({item}) => <Produtor {...item} />;
+  const renderItem = ({item}) => (
+    <Produtor
+      {...item}
+      aoPrecionar={() => {
+        navigation.navigate('Produtor', item);
+      }}
+    />
+  );
 
   return (
     <FlatList
