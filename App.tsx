@@ -1,14 +1,12 @@
 import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
-import AppRouter from './src/routes/AppRoutes';
+import {StatusBar, SafeAreaView} from 'react-native';
+import AppRotas from './src/rotas/AppRotas';
 
-function App() {
+export default function App() {
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar />
-      <AppRouter />
+      <AppRotas />
     </SafeAreaView>
   );
 }
-
-export default App;
